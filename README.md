@@ -1,6 +1,6 @@
 # Hi, I'm Chris "Sean" Dabatos
 
-📍 Las Vegas | 💻 Developer | 🥑 DevRel @ TiDB
+📍 Las Vegas | 💻 Developer | 🥑 DevRel @ [TiDB](https://github.com/pingcap/tidb)
 
 > I build apps I'd actually use myself, then share them with the world.
 
