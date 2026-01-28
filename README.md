@@ -17,8 +17,8 @@
 
 ## Latest Blog Posts
 
-- [Building a Voice-to-Text App That Learns Your Style](https://www.chrisdabatos.com/blog/speak-it/) - Privacy-first style learning with TiDB vector search
-- [I Built a System That Writes My Autobiography While I Use It](https://www.chrisdabatos.com/blog/ai-journal-system/) - AI journaling that captures your life story
+- [Building a Voice-to-Text App That Learns Your Style](https://www.chrisdabatos.com/blog/speak-it/) - Jan 2026
+- [I Built a System That Writes My Autobiography While I Use It](https://www.chrisdabatos.com/blog/ai-journal-system/) - Dec 2025
 
 ## Content
 
