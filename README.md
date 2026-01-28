@@ -13,7 +13,7 @@
 - [College Picker](https://github.com/RealChrisSean/college-picker) - AI college comparison with real Dept. of Education data
 - [Journal It](https://app.parallellives.ai/journal) - AI journaling system that writes your autobiography
 - [atlasMemory](https://github.com/RealChrisSean/atlasMemory) - Unified AI memory layer with branching and rollbacks
-- [OriginAI](https://github.com/RealChrisSean/OriginAI) - Chrome extension to detect AI-generated content
+- [OriginAI](https://app.parallellives.ai/detect) - Chrome extension to detect AI-generated content
 
 ## Latest Blog Posts
 
