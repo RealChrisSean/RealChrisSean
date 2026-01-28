@@ -28,6 +28,12 @@
 - [Blog](https://www.chrisdabatos.com/) - Technical deep-dives
 - Speaking: AllThingsAI 2026, Percona Live, SF Awesome AI Dev Tools
 
+## Latest Video
+
+<a href="https://youtu.be/-hsrwt5mSpU">
+  <img src="https://img.youtube.com/vi/-hsrwt5mSpU/maxresdefault.jpg" width="400" alt="Latest YouTube Video">
+</a>
+
 ## Connect
 
 [![X](https://img.shields.io/badge/@RealChrisSean-black?style=flat-square&logo=x&logoColor=white)](https://x.com/RealChrisSean) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/realchrissean) [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@RealChrisSean) [![Website](https://img.shields.io/badge/chrisdabatos.com-000?style=flat-square&logo=vercel&logoColor=white)](https://chrisdabatos.com)
