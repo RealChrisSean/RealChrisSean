@@ -26,7 +26,7 @@
 
 - [YouTube](https://youtube.com/@RealChrisSean) - AI tools, databases, developer tutorials
 - [Blog](https://www.chrisdabatos.com/) - Technical deep-dives
-- Speaking: [AllThingsAI 2026](https://2026.allthingsai.org/sessions/write-like-me-not-for-me), Percona Live, SF Awesome AI Dev Tools
+- Speaking: [AllThingsAI 2026](https://2026.allthingsai.org/sessions/write-like-me-not-for-me), [Percona Live](https://www.youtube.com/watch?v=ufiRoKlBj4A), SF Awesome AI Dev Tools
 
 ## Latest Video
 
