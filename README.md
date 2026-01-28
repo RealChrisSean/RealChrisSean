@@ -15,6 +15,11 @@
 - [atlasMemory](https://github.com/RealChrisSean/atlasMemory) - Unified AI memory layer with branching and rollbacks
 - [OriginAI](https://github.com/RealChrisSean/OriginAI) - Chrome extension to detect AI-generated content
 
+## Latest Blog Posts
+
+- [Building a Voice-to-Text App That Learns Your Style](https://www.chrisdabatos.com/blog/speak-it/) - Privacy-first style learning with TiDB vector search
+- [I Built a System That Writes My Autobiography While I Use It](https://www.chrisdabatos.com/blog/ai-journal-system/) - AI journaling that captures your life story
+
 ## Content
 
 - [YouTube](https://youtube.com/@RealChrisSean) - AI tools, databases, developer tutorials
