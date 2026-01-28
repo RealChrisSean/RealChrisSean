@@ -32,10 +32,6 @@
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=RealChrisSean&layout=compact&theme=github_dark&hide_border=true)
 
-## Contribution Snake
-
-![Snake animation](https://raw.githubusercontent.com/RealChrisSean/RealChrisSean/output/github-snake-dark.svg)
-
 ## Connect
 
 [![X](https://img.shields.io/badge/@RealChrisSean-black?style=flat-square&logo=x&logoColor=white)](https://x.com/RealChrisSean) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/realchrissean) [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@RealChrisSean) [![Website](https://img.shields.io/badge/chrisdabatos.com-000?style=flat-square&logo=vercel&logoColor=white)](https://chrisdabatos.com)
