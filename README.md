@@ -1,8 +1,8 @@
 # Hi, I'm Chris Dabatos
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=58A6FF&width=500&lines=Building+apps+I'd+actually+use+myself;Developer+Advocate+%40+TiDB;YouTuber+%26+Content+Creator)](https://git.io/typing-svg)
-
 📍 Las Vegas | 🔧 Developer Advocate @ TiDB | 🎬 YouTuber
+
+> I build apps I'd actually use myself, then share them with the world.
 
 ![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square) ![TiDB](https://img.shields.io/badge/TiDB-Database-blue?style=flat-square) ![Claude](https://img.shields.io/badge/Claude-API-orange?style=flat-square) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-black?style=flat-square&logo=next.js&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 
