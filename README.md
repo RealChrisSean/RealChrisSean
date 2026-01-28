@@ -6,11 +6,7 @@
 
 ![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel&theme=light" />
-  <img alt="Skills" src="https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel&theme=dark" />
-</picture>
+[![My Skills](https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel)](https://skillicons.dev)
 
 ## Current Projects
 
@@ -20,10 +16,6 @@
 - [Journal It](https://app.parallellives.ai/journal) - AI journaling system that writes your autobiography
 - [atlasMemory](https://github.com/RealChrisSean/atlasMemory) - Unified AI memory layer with branching and rollbacks
 - [OriginAI](https://app.parallellives.ai/detect) - Chrome extension to detect AI-generated content
-
-## Latest Video
-
-[![Latest YouTube Video](https://img.youtube.com/vi/-hsrwt5mSpU/maxresdefault.jpg)](https://youtu.be/-hsrwt5mSpU)
 
 ## Latest Blog Posts
 
