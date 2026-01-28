@@ -4,7 +4,9 @@
 
 > I build apps I'd actually use myself, then share them with the world.
 
-![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square) ![TiDB](https://img.shields.io/badge/TiDB-Database-blue?style=flat-square) ![Claude](https://img.shields.io/badge/Claude-API-orange?style=flat-square) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-black?style=flat-square&logo=next.js&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square)
+
+[![My Skills](https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel)](https://skillicons.dev)
 
 ## Current Projects
 
@@ -25,12 +27,6 @@
 - [YouTube](https://youtube.com/@RealChrisSean) - AI tools, databases, developer tutorials
 - [Blog](https://www.chrisdabatos.com/) - Technical deep-dives
 - Speaking: AllThingsAI 2026, Percona Live, SF Awesome AI Dev Tools
-
-## GitHub Stats
-
-![Chris's GitHub stats](https://github-readme-stats.vercel.app/api?username=RealChrisSean&show_icons=true&theme=github_dark&hide_border=true)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=RealChrisSean&layout=compact&theme=github_dark&hide_border=true)
 
 ## Connect
 
