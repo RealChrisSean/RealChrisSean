@@ -1,4 +1,4 @@
-# Hi, I'm Chris Dabatos
+# Hi, I'm Chris "Sean" Dabatos
 
 📍 Las Vegas | 🔧 Developer Advocate @ TiDB | 🎬 YouTuber
 
