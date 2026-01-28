@@ -1,6 +1,6 @@
 # Hi, I'm Chris "Sean" Dabatos
 
-📍 Las Vegas | 🔧 Developer Advocate @ TiDB | 🎬 YouTuber
+📍 Las Vegas | Developer | 🔧 DevRel @ TiDB
 
 > I build apps I'd actually use myself, then share them with the world.
 
