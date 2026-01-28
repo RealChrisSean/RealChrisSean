@@ -4,7 +4,7 @@
 
 ![TiDB](https://img.shields.io/badge/TiDB-Database-blue?style=flat-square) ![Claude](https://img.shields.io/badge/Claude-API-orange?style=flat-square) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-black?style=flat-square&logo=next.js&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 
-> I break down AI tools and databases for developers who actually ship code. No fluff. Just working examples.
+> I build apps I'd actually use myself, then share them with the world.
 
 ## Current Projects
 
