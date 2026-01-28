@@ -6,27 +6,71 @@
 
 ![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square)
 
-[![My Skills](https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel)](https://skillicons.dev)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel&theme=light" />
+  <img alt="Skills" src="https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel&theme=dark" />
+</picture>
+
+---
+
+### 🔨 Currently Building
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**[College Picker](https://github.com/RealChrisSean/college-picker)** - AI college comparison with real Dept. of Education data
+
+</td>
+<td width="50%" valign="top">
+
+**[Speak It](https://app.parallellives.ai/speak-it)** - Voice-to-text Chrome extension that learns your style
+
+</td>
+</tr>
+</table>
+
+---
+
+<table>
+<tr>
+<td width="60%" valign="top">
 
 ## Current Projects
 
-- [Parallel Lives](https://app.parallellives.ai) - AI decision simulator using multi-model reasoning (Claude + GPT)
-- [Speak It](https://app.parallellives.ai/speak-it) - Voice-to-text Chrome extension that learns your style without storing your words
-- [College Picker](https://github.com/RealChrisSean/college-picker) - AI college comparison with real Dept. of Education data
-- [Journal It](https://app.parallellives.ai/journal) - AI journaling system that writes your autobiography
-- [atlasMemory](https://github.com/RealChrisSean/atlasMemory) - Unified AI memory layer with branching and rollbacks
-- [OriginAI](https://app.parallellives.ai/detect) - Chrome extension to detect AI-generated content
+- [Parallel Lives](https://app.parallellives.ai) - AI decision simulator (Claude + GPT)
+- [Speak It](https://app.parallellives.ai/speak-it) - Voice-to-text that learns your style
+- [College Picker](https://github.com/RealChrisSean/college-picker) - AI college comparison
+- [Journal It](https://app.parallellives.ai/journal) - AI journaling autobiography
+- [atlasMemory](https://github.com/RealChrisSean/atlasMemory) - AI memory with branching
+- [OriginAI](https://app.parallellives.ai/detect) - Detect AI-generated content
 
 ## Latest Blog Posts
 
 - [Building a Voice-to-Text App That Learns Your Style](https://www.chrisdabatos.com/blog/speak-it/) - Jan 2026
-- [I Built a System That Writes My Autobiography While I Use It](https://www.chrisdabatos.com/blog/ai-journal-system/) - Dec 2025
+- [I Built a System That Writes My Autobiography](https://www.chrisdabatos.com/blog/ai-journal-system/) - Dec 2025
+
+</td>
+<td width="40%" valign="top">
+
+## Latest Video
+
+[![Latest YouTube Video](https://img.youtube.com/vi/-hsrwt5mSpU/maxresdefault.jpg)](https://youtu.be/-hsrwt5mSpU)
+
+**[Watch on YouTube →](https://youtu.be/-hsrwt5mSpU)**
 
 ## Content
 
-- [YouTube](https://youtube.com/@RealChrisSean) - AI tools, databases, developer tutorials
+- [YouTube](https://youtube.com/@RealChrisSean) - AI tools & tutorials
 - [Blog](https://www.chrisdabatos.com/) - Technical deep-dives
-- Speaking: AllThingsAI 2026, Percona Live, SF Awesome AI Dev Tools
+- Speaking: AllThingsAI 2026, Percona Live
+
+</td>
+</tr>
+</table>
+
+---
 
 ## Connect
 
