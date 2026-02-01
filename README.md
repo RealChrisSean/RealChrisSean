@@ -8,6 +8,9 @@
 
 [![My Skills](https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel)](https://skillicons.dev)
 
+## Currently Working On
+- BaseCamp (private repo) - I take pictures of my workout notes and AI logs every set. I upload photos of what I eat and it tracks macros. I talk about how I feel. It learns what works for MY body, and reaches out when it matters.
+
 ## Current Projects
 
 - [Parallel Lives](https://app.parallellives.ai) - AI decision simulator using multi-model reasoning (Claude + GPT)
