@@ -9,7 +9,22 @@
 [![My Skills](https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel)](https://skillicons.dev)
 
 ## Currently Working On
-- BaseCamp (private repo) - I take pictures of my workout notes and AI logs every set. I upload photos of what I eat and it tracks macros. I talk about how I feel. It learns what works for MY body, and reaches out when it matters.
+- **BaseCamp** (private repo) - Every health app I've tried fails the same way. They expect you to remember to open the app and log stuff. I never do. I always fall off after like two weeks. So I'm building my own. Voice first, no forms. Typing is no longer required. Instead, all I need to do is speak, take photos of my food, share screenshots of my workout routine that day and AI handles the rest. It syncs with my WHOOP and Withings automatically, builds long term memory about what actually works for MY body, and reaches out to ME when it matters. This will not just be another dashboard that you'll never open.
+
+### Current Status
+
+| Phase | What | Status |
+|-------|------|--------|
+| 1 | Foundation (Next.js, TiDB, auth) | ✅ Complete |
+| 2 | Voice input + extraction | ✅ Complete |
+| 3 | Screenshot parsing | ✅ Complete |
+| 4 | WHOOP integration | 🔄 In progress |
+| 5 | Withings integration | Not started |
+| 6 | Search & history | Not started |
+| 7 | Memory layer (Mem0) | Not started |
+| 7.5 | MCP Server (query data from Claude Desktop) | Not started |
+| 8 | Proactive agent | Not started |
+| 9 | Polish | Not started |
 
 ## Current Projects
 
