@@ -15,14 +15,14 @@
 
 | Phase | What | Status |
 |-------|------|--------|
-| 1 | Foundation (Next.js, TiDB, auth) | ✅ Complete |
+| 1 | Foundation (Next.js, [TiDB](https://tidbcloud.com/), auth) | ✅ Complete |
 | 2 | Voice input + extraction | ✅ Complete |
 | 3 | Screenshot parsing | ✅ Complete |
-| 4 | WHOOP integration | 🔄 In progress |
-| 5 | Withings integration | Not started |
+| 4 | [WHOOP integration](https://developer.whoop.com/) | 🔄 In progress |
+| 5 | [Withings integration](https://developer.withings.com/developer-guide/v3/withings-solutions/app-to-app-solution/) | Not started |
 | 6 | Search & history | Not started |
 | 7 | Memory layer ([Mem0](https://github.com/mem0ai/mem0)) | Not started |
-| 7.5 | MCP Server (query data from Telegram, text message or Claude Desktop) | Not started |
+| 7.5 | MCP Server (query data from Telegram, text message or [Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)) | Not started |
 | 8 | Proactive agent | Not started |
 | 9 | Polish | Not started |
 
