@@ -11,7 +11,7 @@
 ## Currently Working On
 - [**BaseCamp**](https://github.com/RealChrisSean/basecamp) - Every health app I've tried fails the same way. They expect you to remember to open the app and log stuff. I never do. I always fall off after like two weeks. So I'm building my own version. Where it will be voice first and typing second. Instead, all I need to do is speak, take photos of my food, share screenshots of my workout routine that day and AI handles the rest. It syncs with my WHOOP and Withings automatically, builds long term memory about what actually works for MY body, and reaches out to ME when it matters. This will not just be another dashboard that you'll never open.
 
-## Current Status
+## Current Status for BaseCamp
 
 | Phase | What | Status |
 |-------|------|--------|
