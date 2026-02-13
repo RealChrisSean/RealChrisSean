@@ -27,7 +27,7 @@
 | 10 | [WHOOP integration](https://developer.whoop.com/) | Not started |
 | 11 | [Withings integration](https://developer.withings.com/developer-guide/v3/withings-solutions/app-to-app-solution/) | Not started |
 
-## Current Projects
+## My Projects
 
 - [Parallel Lives](https://app.parallellives.ai) - AI decision simulator using multi-model reasoning (Claude + GPT)
 - [Speak It](https://app.parallellives.ai/speak-it) - Voice-to-text Chrome extension that learns your style without storing your words
