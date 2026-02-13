@@ -11,20 +11,21 @@
 ## Currently Working On
 - [**BaseCamp**](https://github.com/RealChrisSean/basecamp) - Every health app I've tried fails the same way. They expect you to remember to open the app and log stuff. I never do. I always fall off after like two weeks. So I'm building my own version. Where it will be voice first and typing second. Instead, all I need to do is speak, take photos of my food, share screenshots of my workout routine that day and AI handles the rest. It syncs with my WHOOP and Withings automatically, builds long term memory about what actually works for MY body, and reaches out to ME when it matters. This will not just be another dashboard that you'll never open.
 
-### Current Status
+## Current Status
 
 | Phase | What | Status |
 |-------|------|--------|
-| 1 | Foundation (Next.js, [TiDB](https://tidbcloud.com/), auth) | ✅ Complete |
-| 2 | Voice input + extraction | ✅ Complete |
+| 1 | Foundation ([Next.js](https://nextjs.org/), [TiDB](https://tidbcloud.com/), auth) | ✅ Complete |
+| 2 | Voice input + extraction ([Deepgram](https://deepgram.com/)) | ✅ Complete |
 | 3 | Screenshot parsing | ✅ Complete |
-| 4 | [WHOOP integration](https://developer.whoop.com/) | 🔄 In progress |
-| 5 | [Withings integration](https://developer.withings.com/developer-guide/v3/withings-solutions/app-to-app-solution/) | Not started |
-| 6 | Search & history | Not started |
+| 4 | Search & history | ✅ Complete |
+| 5 | Observability ([LangSmith](https://smith.langchain.com/)) | ✅ Complete |
+| 6 | UX polish (dark/light theme, swipe-to-delete, inline edit) | 🔧 In progress |
 | 7 | Memory layer ([Mem0](https://github.com/mem0ai/mem0)) | Not started |
-| 7.5 | MCP Server (query data from Telegram, text message or [Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)) | Not started |
-| 8 | Proactive agent | Not started |
-| 9 | Polish | Not started |
+| 8 | MCP Server (query data from Telegram, text message or [Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)) | Not started |
+| 9 | Proactive agent | Not started |
+| 10 | [WHOOP integration](https://developer.whoop.com/) | Not started |
+| 11 | [Withings integration](https://developer.withings.com/developer-guide/v3/withings-solutions/app-to-app-solution/) | Not started |
 
 ## Current Projects
 
