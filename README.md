@@ -20,8 +20,8 @@
 | 3 | Screenshot parsing | ✅ Complete |
 | 4 | Search & history | ✅ Complete |
 | 5 | Observability ([LangSmith](https://smith.langchain.com/)) | ✅ Complete |
-| 6 | UX polish (dark/light theme, swipe-to-delete, inline edit) | 🔧 In progress |
-| 7 | Memory layer ([Mem0](https://github.com/mem0ai/mem0)) | Not started |
+| 6 | UX polish (dark/light theme, swipe-to-delete, inline edit) | ✅ Complete |
+| 7 | Memory layer ([Mem0](https://github.com/mem0ai/mem0)) | 🔧 In progress |
 | 8 | MCP Server (query data from Telegram, text message or [Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)) | Not started |
 | 9 | Proactive agent | Not started |
 | 10 | [WHOOP integration](https://developer.whoop.com/) | Not started |
