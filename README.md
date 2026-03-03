@@ -9,26 +9,29 @@
 [![My Skills](https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel)](https://skillicons.dev)
 
 ## Currently Working On
-- [**BaseCamp**](https://github.com/RealChrisSean/basecamp) - Every health app I've tried fails the same way. They expect you to remember to open the app and log stuff. I never do. I always fall off after like two weeks. So I'm building my own version. Where it will be voice first and typing second. Instead, all I need to do is speak, take photos of my food, share screenshots of my workout routine that day and AI handles the rest. It syncs with my WHOOP and Withings automatically, builds long term memory about what actually works for MY body, and reaches out to ME when it matters. This will not just be another dashboard that you'll never open.
+- [**Speak2Me**](https://speak2me.io) - Every journaling app I've used expects me to sit down, open the app, and type out how I feel. I never do that. Nobody does that. So I built one where you just talk. But here's what makes it different from slapping a mic on a notes app: it picks up on your emotions in real time through your voice ([Hume EVI](https://www.hume.ai/)), not because you told it you're stressed, but because it can HEAR that you're stressed. [Claude](https://www.anthropic.com/) runs the brain. And the memory system isn't some LLM-generated summary that drifts over time. Every fact gets its own row in the database, categorized and validated. Deterministic. No LLM synthesis, no corruption from a bad run, and facts never fall off no matter how many conversations you have. You come back tomorrow and it already knows your story. No catch-up. No repeating yourself. You just talk. Also has a Research Mode where you whisper a question mid-interview and get web-sourced answers streamed back as text in YOUR speaking style. Silent. No one knows.
 
-## Current Status for BaseCamp
+## Current Status for Speak2Me
 
 | Phase | What | Status |
 |-------|------|--------|
 | 1 | Foundation ([Next.js](https://nextjs.org/), [TiDB](https://tidbcloud.com/), auth) | ✅ Complete |
-| 2 | Voice input + extraction ([Deepgram](https://deepgram.com/)) | ✅ Complete |
-| 3 | Screenshot parsing | ✅ Complete |
-| 4 | Search & history | ✅ Complete |
-| 5 | Observability ([LangSmith](https://smith.langchain.com/)) | ✅ Complete |
-| 6 | UX polish (dark/light theme, swipe-to-delete, inline edit) | ✅ Complete |
-| 7 | Memory layer ([Mem0](https://github.com/mem0ai/mem0)) | 🔧 In progress |
-| 8 | MCP Server (query data from Telegram, text message or [Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)) | Not started |
-| 9 | Proactive agent | Not started |
-| 10 | [WHOOP integration](https://developer.whoop.com/) | Not started |
-| 11 | [Withings integration](https://developer.withings.com/developer-guide/v3/withings-solutions/app-to-app-solution/) | Not started |
+| 2 | Voice conversation ([Hume EVI](https://www.hume.ai/) + emotion detection) | ✅ Complete |
+| 3 | AI brain ([Claude](https://www.anthropic.com/) via custom LM endpoint) | ✅ Complete |
+| 4 | Dedicated facts table (deterministic profile, no LLM synthesis, facts never fall off) | ✅ Complete |
+| 5 | Instant memory recall (zero-delay prefetch on app open) | ✅ Complete |
+| 6 | Session history, search, transcript export | ✅ Complete |
+| 7 | Dashboard (streaks, per-message emotion scores charted over weeks, memory carousel) | ✅ Complete |
+| 8 | "On This Day" throwbacks (surfaces journal entries from the same date in past months) | ✅ Complete |
+| 9 | Proactive reminders (upcoming birthdays, anniversaries) | ✅ Complete |
+| 10 | Research Mode (voice-in, text-out, web search in your speaking style) | ✅ Complete |
+| 11 | Voice identity verification (Modal infra + DB + API built, UI wiring left) | 🔧 In progress |
+| 12 | Memory management (user can see/edit/correct what AI remembers) | Not started |
+| 13 | Mobile app (PWA or native) | Not started |
 
 ## My Projects
 
+- [BaseCamp](https://base-camp-five.vercel.app) - Voice-first personal health OS that builds long-term memory about what works for YOUR body
 - [Parallel Lives](https://app.parallellives.ai) - AI decision simulator using multi-model reasoning (Claude + GPT)
 - [Speak It](https://app.parallellives.ai/speak-it) - Voice-to-text Chrome extension that learns your style without storing your words
 - [College Picker](https://github.com/RealChrisSean/college-picker) - AI college comparison with real Dept. of Education data
