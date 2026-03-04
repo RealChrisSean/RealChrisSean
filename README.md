@@ -41,6 +41,7 @@
 
 ## Latest Blog Posts
 
+- [AI Memory Is Broken. I Know Because I Built It.](https://www.chrisdabatos.com/blog/ai-memory-is-broken/) Feb 2026
 - [Building a Voice-to-Text App That Learns Your Style](https://www.chrisdabatos.com/blog/speak-it/) - Jan 2026
 - [I Built a System That Writes My Autobiography While I Use It](https://www.chrisdabatos.com/blog/ai-journal-system/) - Dec 2025
 
