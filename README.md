@@ -137,8 +137,7 @@
 | 12 | Web search (Anthropic native tool + Gemma via Brave Search) | ✅ Complete |
 | 13 | Settings page (API keys via UI, no `.env.local` editing for normal users) | ✅ Complete |
 | 14 | Warm dark/light mode (CSS variables, no flash on first paint) | ✅ Complete |
-| 15 | Docker Compose for Postgres + Next (Ollama stays native for Metal acceleration) | 🔧 Planned |
-| 16 | Voice mode (Whisper STT + Piper TTS, both local) | Not started |
+| 15 | Voice mode (Whisper STT + Piper TTS, both local) | Not started |
 
 ## My Projects
 
