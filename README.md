@@ -136,13 +136,13 @@
 | 11 | Optional [Langfuse](https://langfuse.com/) observability (peer dep, opt-in, self-host friendly) | ✅ Complete |
 | 12 | Web search (Anthropic native tool + Gemma via Brave Search) | ✅ Complete |
 | 13 | Settings page (API keys via UI, no `.env.local` editing for normal users) | ✅ Complete |
-| 14 | Claude-style warm dark mode (CSS variables, no flash on first paint) | ✅ Complete |
+| 14 | Warm dark/light mode (CSS variables, no flash on first paint) | ✅ Complete |
 | 15 | Docker Compose for Postgres + Next (Ollama stays native for Metal acceleration) | 🔧 Planned |
 | 16 | Voice mode (Whisper STT + Piper TTS, both local) | Not started |
 
 ## My Projects
 
-- [Speak2Me](https://speak2me.io) - Voice-first AI journal companion. Real-time emotion detection through your voice (Hume EVI), Claude Opus 4.6 brain, deterministic facts engine that pins identity facts so they never fall off
+- [Speak2Me](https://speak2me.io) - Your personal Voice AI Agent. Built with real-time emotion detection through your voice (Hume EVI), Claude Opus 4.6 brain, deterministic facts engine that pins identity facts so they never fall off. 
 - [BaseCamp](https://base-camp-five.vercel.app) - Voice-first personal health OS that builds long-term memory about what works for YOUR body
 - [Parallel Lives](https://app.parallellives.ai) - AI decision simulator using multi-model reasoning (Claude + GPT)
 - [Speak It](https://app.parallellives.ai/speak-it) - Voice-to-text Chrome extension that learns your style without storing your words
