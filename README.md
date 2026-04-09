@@ -6,124 +6,143 @@
 
 ![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square)
 
-[![My Skills](https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,mysql,vercel)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,postgres,vercel)](https://skillicons.dev)
 
 ## Currently Working On
-- [**Speak2Me**](https://speak2me.io) - I wanted to build an AI companion that actually remembers you. So I built Speak2Me. But here's what makes it different from slapping a mic on a notes app: it can actually pick up on your emotions in real time through your ACTUAL voice. And not because you told it you were stressed, but because it can literally HEAR that you're stressed. Claude Opus 4.6 runs the brain. And for the memory system - well, it isn't some LLM-generated summary that drifts over time. Every fact gets its own row in my database, categorized and validated. Deterministic. No LLM synthesis, no corruption from a bad run, and facts never fall off no matter how many conversations you have. When new info contradicts old info, the old fact gets superseded - not duplicated, not deleted. Identity facts like your wife's name or your kid's birthday are pinned and can never get pushed out by newer stuff. You can come back tomorrow, next week or next year and it will remember and know your story. No catch-up. No repeating yourself. You just talk.
-
+- [**RecallMEM**](https://github.com/RealChrisSean/RecallMEM) - Built my own private AI chatbot w/ Gemma 4. I personally just don't want my data sitting on someone else's server. So I built RecallMEM. Where every single byte of YOUR conversation stays on YOUR machine. No account, no cloud, and no telemetry needed. And the best part, it remembers everything you talk about across not only sessions, but days, weeks and even months.<br>
 <details>
-<summary><b>How the Memory Architecture Works</b></summary>
+<summary><b>How RecallMEM's Memory Architecture Works</b></summary>
 <br>
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    SPEAK2ME MEMORY ARCHITECTURE                 │
+│                  RECALLMEM MEMORY ARCHITECTURE                  │
+│                  100% local. No cloud. No LLM in the loop       │
+│                  for retrieval. Ever.                           │
 └─────────────────────────────────────────────────────────────────┘
 
-  YOU TALK                        REAL-TIME
-  ───────►  Hume EVI  ─────────►  Emotion Detection
-            (voice)               (prosody analysis)
-               │                        │
-               ▼                        ▼
-         Transcription         Top 3 emotions + scores
-               │                   attached to each message
-               ▼                        │
-        ┌──────────────────────────────────┐
-        │         Claude Opus 4.6          │
-        │     (knows your full story +     │
-        │      can hear how you feel)      │
-        └──────────────────────────────────┘
+  YOU SEND A MESSAGE                READ PATH (deterministic)
+  ──────────────────►       ┌──────────────────────────────┐
+                            │  Plain SQL pulls profile     │
+                            │  Plain SQL pulls active      │
+                            │    facts (with valid_from    │
+                            │    date stamps)              │
+                            │  EmbeddingGemma converts     │
+                            │    your message to a vector  │
+                            │  pgvector cosine similarity  │
+                            │    ranks past chunks         │
+                            │  TypeScript template builds  │
+                            │    the system prompt         │
+                            └──────────────┬───────────────┘
+                                           │
+                                           ▼
+                            ┌──────────────────────────────┐
+                            │   Your chosen LLM            │
+                            │   (Gemma 4 / Claude / GPT)   │
+                            │   sees a fully-assembled     │
+                            │   prompt with dated memory   │
+                            └──────────────────────────────┘
+
+  The LLM never queries the database. It cannot "decide" to
+  retrieve something. It cannot hallucinate a memory that
+  isn't there - if it's not in the prompt, it doesn't exist
+  for the model.
 
 ═══════════════════════════════════════════════════════════════════
-  AFTER EACH CONVERSATION — THE FACTS ENGINE
+  AFTER EVERY ASSISTANT REPLY — LIVE FACT EXTRACTION
 ═══════════════════════════════════════════════════════════════════
 
-  Transcript
-      │
-      ├──► FAST PATH (inline, ~500ms)          Start a new session
-      │    Claude Haiku quick extraction        10 seconds later and
-      │    Facts available immediately          the AI already knows.
-      │
-      └──► DEEP PATH (async, background)
-           Deeper extraction + embeddings
-           Catches anything fast path missed
-
-  Both paths run through the same pipeline:
-                │
-                ▼
-  VALIDATE ── garbage? ──► REJECT
-      │         (meta-observations,
-      │          AI behavior notes,
-      │          negatives, generics)
-      ▼
-  CATEGORIZE (keyword matching, no LLM)
-      │
-      │   ┌──────────────────────────────────┐
-      │   │  identity · family · work        │
-      │   │  finance · health · interest     │
-      │   │  project · social                │
-      │   └──────────────────────────────────┘
-      ▼
-  SUPERSEDE ── overlaps existing fact? ──► old fact marked inactive
-      │          (70% word overlap check)       (never deleted)
-      ▼
-  STORE as its own row in s2m_user_facts
-      │
-      ▼
-  PIN IDENTITY FACTS — family, names, birthdays
-      │    are flagged and ALWAYS loaded.
-      │    Can never be pushed out.
-      ▼
-  BUILD PROFILE (deterministic string format)
-      No LLM. Same input = same output. Always.
+  Stream closes
+       │
+       ▼  fire-and-forget, user never waits
+  Local Gemma 4 E4B reads the running transcript AND the
+  existing active facts. Returns a JSON object:
+       {
+         facts: ["new fact 1", "new fact 2"],
+         supersedes: ["uuid-of-old-fact-that-no-longer-true"]
+       }
+       │
+       ▼
+  TypeScript validator (6 gates)
+       │
+       ├──► garbage filter (meta-observations,
+       │    AI behavior notes, "hasn't shared", etc)
+       ├──► JSON parse + type validation
+       ├──► length / quality bar
+       ├──► dedupe against entire facts table
+       ├──► category routing (keyword + inflection,
+       │    no LLM)
+       └──► insert OR retire
+              │
+              ▼
+  Old facts get is_active=false, valid_to=NOW().
+  History preserved. Active set always reflects current truth.
+       │
+       ▼
+  recategorizeAllFacts() re-runs the router on every fact.
+  Categories self-heal as the logic improves.
+       │
+       ▼
+  rebuildProfile() synthesizes a structured profile from
+  active facts. Each fact stamped with its valid_from date.
 
 ═══════════════════════════════════════════════════════════════════
-  NEXT SESSION — INSTANT RECALL
+  TEMPORAL CONTEXT — SOLVES THE COLLAPSE PROBLEM
 ═══════════════════════════════════════════════════════════════════
 
-  App opens                    You click "Start Talking"
-      │                              │
-      ▼                              ▼
-  Prefetch ALL active facts    Everything already loaded.
-  profile + recent context     Zero wait. Zero catch-up.
-  (background, before you      AI knows your whole story
-   even click anything)        from word one.
+  Across conversations:  every active fact in the prompt is
+                         stamped [YYYY-MM-DD]. Newer facts
+                         override older ones if they conflict.
+
+  Resumed conversations: chat last touched > 2 hours ago?
+                         single system marker injected:
+                         [Conversation resumed 6 days later]
+
+  Retrieved chunks:      vector search results prefixed with
+                         [from conversation on YYYY-MM-DD]
+                         so the model can tell history from now.
 ```
 
-| | How Most AI Apps Do It | Speak2Me |
+| | How Most AI Apps Do It | RecallMEM |
 |---|---|---|
-| **Storage** | JSON blobs / summaries | One row per fact |
-| **Profile** | LLM synthesis (can corrupt) | Deterministic, no LLM |
-| **Fact lifespan** | Falls off after N chats | Never falls off |
-| **Bad LLM run** | Corrupts everything | Can't happen |
-| **Contradictions** | Both versions kept | Old fact superseded |
-| **Garbage facts** | Stored anyway | Rejected on write |
-| **Identity facts** | Same priority as all | Pinned, always loaded |
-| **Recall speed** | 5-10s mid-conversation | Pre-loaded, instant |
-| **Back-to-back sessions** | Waits for background processing | Facts ready in ~500ms |
+| **Runs locally** | ❌ Cloud only | ✅ Postgres + Ollama on your Mac |
+| **Memory retrieval** | LLM tool calls (hallucinable) | Deterministic SQL + pgvector |
+| **Fact storage** | JSON blobs / summaries | One row per fact, validated 6 ways |
+| **Profile synthesis** | LLM (drift, corruption) | Pure TypeScript, idempotent |
+| **Bad LLM run** | Corrupts memory | Cannot touch the DB |
+| **Stale facts** | Sit alongside current ones | Auto-retired via supersession |
+| **Temporal awareness** | None (everything looks "now") | Every fact has valid_from + valid_to |
+| **Resumed chats** | Model has no idea time passed | System marker for >2hr gaps |
+| **Bring your own LLM** | ❌ vendor lock-in | ✅ Ollama / Claude / GPT / any OpenAI-compatible |
+| **Install** | sign up, pay, wait | `npx recallmem` |
+| **License** | Closed | Apache 2.0 |
 
 </details>
 
-## Current Status for Speak2Me
+## Current Status for RecallMEM
 
 | Phase | What | Status |
 |-------|------|--------|
-| 1 | Foundation ([Next.js](https://nextjs.org/), [TiDB](https://tidbcloud.com/), auth) | ✅ Complete |
-| 2 | Voice conversation ([Hume EVI](https://www.hume.ai/) + emotion detection) | ✅ Complete |
-| 3 | AI brain ([Claude](https://www.anthropic.com/) via custom LM endpoint) | ✅ Complete |
-| 4 | Dedicated facts table (deterministic profile, no LLM synthesis, facts never fall off) | ✅ Complete |
-| 5 | Instant memory recall (zero-delay prefetch on app open) | ✅ Complete |
-| 6 | Session history, search, transcript export | ✅ Complete |
-| 7 | Dashboard (streaks, per-message emotion scores charted over weeks, memory carousel) | ✅ Complete |
-| 8 | "On This Day" throwbacks (surfaces journal entries from the same date in past months) | ✅ Complete |
-| 9 | Proactive reminders (upcoming birthdays, anniversaries) | ✅ Complete |
-| 10 | Research Mode (voice-in, text-out, web search in your speaking style) | ✅ Complete |
-| 11 | Voice identity verification (Modal infra + DB + API built, UI wiring left) | 🔧 In progress |
-| 12 | Memory management (user can see/edit/correct what AI remembers) | Not started |
-| 13 | Mobile app (PWA or native) | Not started |
+| 1 | Foundation ([Next.js 16](https://nextjs.org/) + [Postgres 17](https://www.postgresql.org/) + [pgvector](https://github.com/pgvector/pgvector)) | ✅ Complete |
+| 2 | Three-layer memory: profile + facts + vector search via [EmbeddingGemma 300M](https://ollama.com/library/embeddinggemma) | ✅ Complete |
+| 3 | Multi-provider LLM router ([Ollama](https://ollama.com/) + [Anthropic](https://www.anthropic.com/) + [OpenAI](https://openai.com/) + OpenAI-compatible) | ✅ Complete |
+| 4 | Live fact extraction (runs after every assistant reply, fire-and-forget) | ✅ Complete |
+| 5 | Fact supersession + temporal context (`valid_from` / `valid_to`, dated prompt injection) | ✅ Complete |
+| 6 | Self-healing categories (deterministic re-categorize after every chat / edit / delete) | ✅ Complete |
+| 7 | Memory inspector (view, edit, delete every fact in the UI) | ✅ Complete |
+| 8 | Custom rules (`RULES.md` global system prompt) | ✅ Complete |
+| 9 | CLI bootstrap (`npx recallmem` auto-detects dev / fresh / installed mode) | ✅ Complete |
+| 10 | Test suite ([Vitest](https://vitest.dev/) covering keyword routing + inflection + regression cases) | ✅ Complete |
+| 11 | Optional [Langfuse](https://langfuse.com/) observability (peer dep, opt-in, self-host friendly) | ✅ Complete |
+| 12 | Web search (Anthropic native tool + Gemma via Brave Search) | ✅ Complete |
+| 13 | Settings page (API keys via UI, no `.env.local` editing for normal users) | ✅ Complete |
+| 14 | Claude-style warm dark mode (CSS variables, no flash on first paint) | ✅ Complete |
+| 15 | Docker Compose for Postgres + Next (Ollama stays native for Metal acceleration) | 🔧 Planned |
+| 16 | Voice mode (Whisper STT + Piper TTS, both local) | Not started |
 
 ## My Projects
 
+- [Speak2Me](https://speak2me.io) - Voice-first AI journal companion. Real-time emotion detection through your voice (Hume EVI), Claude Opus 4.6 brain, deterministic facts engine that pins identity facts so they never fall off
 - [BaseCamp](https://base-camp-five.vercel.app) - Voice-first personal health OS that builds long-term memory about what works for YOUR body
 - [Parallel Lives](https://app.parallellives.ai) - AI decision simulator using multi-model reasoning (Claude + GPT)
 - [Speak It](https://app.parallellives.ai/speak-it) - Voice-to-text Chrome extension that learns your style without storing your words
@@ -134,22 +153,17 @@
 
 ## Latest Blog Posts
 
+- [Coding Used to Be Hard](https://www.chrisdabatos.com/blog/coding-used-to-be-hard/) - Apr 2026
+- [Study Mode](https://www.chrisdabatos.com/blog/study-mode/) - Mar 2026
+- [AI Engineering Is the New Web Dev](https://www.chrisdabatos.com/blog/ai-engineering-new-web-dev/) - Mar 2026
 - [AI Memory Is Broken. I Know Because I Built It.](https://www.chrisdabatos.com/blog/ai-memory-is-broken/) - Feb 2026
 - [Building a Voice-to-Text App That Learns Your Style](https://www.chrisdabatos.com/blog/speak-it/) - Jan 2026
 - [I Built a System That Writes My Autobiography While I Use It](https://www.chrisdabatos.com/blog/ai-journal-system/) - Dec 2025
 
 ## Content
-
-- [YouTube](https://youtube.com/@RealChrisSean) - AI tools, databases, developer tutorials
 - [Blog](https://www.chrisdabatos.com/) - Technical deep-dives
 - Speaking: [AllThingsAI 2026](https://2026.allthingsai.org/sessions/write-like-me-not-for-me), [Percona Live](https://www.youtube.com/watch?v=ufiRoKlBj4A), SF Awesome AI Dev Tools
 
-## Latest Video
-
-<a href="https://youtu.be/-hsrwt5mSpU">
-  <img src="https://img.youtube.com/vi/-hsrwt5mSpU/maxresdefault.jpg" width="400" alt="Latest YouTube Video">
-</a>
-
 ## Connect
 
-[![X](https://img.shields.io/badge/@RealChrisSean-black?style=flat-square&logo=x&logoColor=white)](https://x.com/RealChrisSean) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/realchrissean) [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@RealChrisSean) [![Website](https://img.shields.io/badge/chrisdabatos.com-000?style=flat-square&logo=vercel&logoColor=white)](https://chrisdabatos.com)
+[![X](https://img.shields.io/badge/@RealChrisSean-black?style=flat-square&logo=x&logoColor=white)](https://x.com/RealChrisSean) [![LinkedIn](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@RealChrisSean) [![Website](https://img.shields.io/badge/chrisdabatos.com-000?style=flat-square&logo=vercel&logoColor=white)](https://chrisdabatos.com)
