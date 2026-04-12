@@ -123,21 +123,14 @@
 
 | Phase | What | Status |
 |-------|------|--------|
-| 1 | Foundation ([Next.js 16](https://nextjs.org/) + [Postgres 17](https://www.postgresql.org/) + [pgvector](https://github.com/pgvector/pgvector)) | ✅ Complete |
-| 2 | Three-layer memory: profile + facts + vector search via [EmbeddingGemma 300M](https://ollama.com/library/embeddinggemma) | ✅ Complete |
-| 3 | Multi-provider LLM router ([Ollama](https://ollama.com/) + [Anthropic](https://www.anthropic.com/) + [OpenAI](https://openai.com/) + OpenAI-compatible) | ✅ Complete |
-| 4 | Live fact extraction (runs after every assistant reply, fire-and-forget) | ✅ Complete |
-| 5 | Fact supersession + temporal context (`valid_from` / `valid_to`, dated prompt injection) | ✅ Complete |
-| 6 | Self-healing categories (deterministic re-categorize after every chat / edit / delete) | ✅ Complete |
-| 7 | Memory inspector (view, edit, delete every fact in the UI) | ✅ Complete |
-| 8 | Custom rules (`RULES.md` global system prompt) | ✅ Complete |
-| 9 | CLI bootstrap (`npx recallmem` auto-detects dev / fresh / installed mode) | ✅ Complete |
-| 10 | Test suite ([Vitest](https://vitest.dev/) covering keyword routing + inflection + regression cases) | ✅ Complete |
-| 11 | Optional [Langfuse](https://langfuse.com/) observability (peer dep, opt-in, self-host friendly) | ✅ Complete |
-| 12 | Web search (Anthropic native tool + Gemma via Brave Search) | ✅ Complete |
-| 13 | Settings page (API keys via UI, no `.env.local` editing for normal users) | ✅ Complete |
-| 14 | Warm dark/light mode (CSS variables, no flash on first paint) | ✅ Complete |
-| 15 | Voice mode (Whisper STT + Piper TTS, both local) | Not started |
+| 1 | Foundation (Next.js 16 + Postgres 17 + pgvector + EmbeddingGemma) | ✅ Complete |
+| 2 | Deterministic memory (profile + facts + vector search, TS-gated writes, temporal awareness) | ✅ Complete |
+| 3 | LLM agnostic (Ollama, Anthropic, OpenAI, xAI, any OpenAI-compatible) | ✅ Complete |
+| 4 | Multiple brains (isolated memory namespaces per project/context) | ✅ Complete |
+| 5 | Voice + vision (STT/TTS multi-provider, PDF page rendering for LLMs) | ✅ Complete |
+| 6 | Settings, usage tracking, in-app updates, dark mode, web search | ✅ Complete |
+| 7 | Grok Voice Agent (real-time WebSocket with memory + web search) | 🔧 Built, stabilizing |
+| 8 | Cloud SaaS version | 📅 Next week |
 
 ## My Projects
 
