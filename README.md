@@ -17,20 +17,29 @@
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                  RECALLMEM MEMORY ARCHITECTURE                  │
-│                  100% local. No cloud. No LLM in the loop       │
-│                  for retrieval. Ever.                           │
+│                  The LLM proposes, TypeScript decides.          │
+│                  Retrieval is deterministic. Always.            │
 └─────────────────────────────────────────────────────────────────┘
 
   YOU SEND A MESSAGE                READ PATH (deterministic)
   ──────────────────►       ┌──────────────────────────────┐
-                            │  Plain SQL pulls profile     │
-                            │  Plain SQL pulls active      │
-                            │    facts (with valid_from    │
-                            │    date stamps)              │
+                            │  SQL pulls profile summary   │
+                            │                              │
+                            │  Smart fact selection:       │
+                            │    1. Pinned identity/family │
+                            │       facts (always included)│
+                            │    2. Vector search on facts │
+                            │       for what's relevant to │
+                            │       your message           │
+                            │    3. Recent facts fill the  │
+                            │       remaining slots        │
+                            │                              │
                             │  EmbeddingGemma converts     │
                             │    your message to a vector  │
                             │  pgvector cosine similarity  │
-                            │    ranks past chunks         │
+                            │    ranks past transcript     │
+                            │    chunks (up to 8)          │
+                            │                              │
                             │  TypeScript template builds  │
                             │    the system prompt         │
                             └──────────────┬───────────────┘
@@ -38,14 +47,15 @@
                                            ▼
                             ┌──────────────────────────────┐
                             │   Your chosen LLM            │
-                            │   (Gemma 4 / Claude / GPT)   │
+                            │   (Gemma / Claude / GPT /    │
+                            │    Grok / any compatible)    │
                             │   sees a fully-assembled     │
                             │   prompt with dated memory   │
                             └──────────────────────────────┘
 
   The LLM never queries the database. It cannot "decide" to
   retrieve something. It cannot hallucinate a memory that
-  isn't there - if it's not in the prompt, it doesn't exist
+  isn't there — if it's not in the prompt, it doesn't exist
   for the model.
 
 ═══════════════════════════════════════════════════════════════════
@@ -55,8 +65,8 @@
   Stream closes
        │
        ▼  fire-and-forget, user never waits
-  Local Gemma 4 E4B reads the running transcript AND the
-  existing active facts. Returns a JSON object:
+  The same LLM you're chatting with reads the transcript
+  AND the existing active facts. Returns a JSON object:
        {
          facts: ["new fact 1", "new fact 2"],
          supersedes: ["uuid-of-old-fact-that-no-longer-true"]
@@ -75,8 +85,10 @@
        └──► insert OR retire
               │
               ▼
-  Old facts get is_active=false, valid_to=NOW().
-  History preserved. Active set always reflects current truth.
+  New facts are embedded (768-dim vector) for future
+  semantic search. Old facts get is_active=false,
+  valid_to=NOW(). History preserved. Active set always
+  reflects current truth.
        │
        ▼
   recategorizeAllFacts() re-runs the router on every fact.
@@ -101,6 +113,7 @@
   Retrieved chunks:      vector search results prefixed with
                          [from conversation on YYYY-MM-DD]
                          so the model can tell history from now.
+
 ```
 
 | | How Most AI Apps Do It | RecallMEM |
