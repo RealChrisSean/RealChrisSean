@@ -1,12 +1,8 @@
 # Hi, I'm Chris "Sean" Dabatos
 
-📍 Las Vegas | 💻 Developer | 🥑 DevRel @ [TiDB](https://github.com/pingcap/tidb)
-
 > I build apps I'd actually use myself, then share them with the world.
 
 ![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square)
-
-[![My Skills](https://skillicons.dev/icons?i=ts,nextjs,react,python,nodejs,tailwind,postgres,vercel)](https://skillicons.dev)
 
 ## Currently Working On
 - [**RecallMEM**](https://github.com/RealChrisSean/RecallMEM) - Built my own private AI chatbot w/ Gemma 4. I personally just don't want my data sitting on someone else's server. So I built RecallMEM. Where every single byte of YOUR conversation stays on YOUR machine. No account, no cloud, and no telemetry needed. And the best part, it remembers everything you talk about across not only sessions, but days, weeks and even months.<br>
@@ -132,18 +128,6 @@
 
 </details>
 
-## Current Status for RecallMEM
-
-| Phase | What | Status |
-|-------|------|--------|
-| 1 | Foundation (Next.js 16 + Postgres 17 + pgvector + EmbeddingGemma) | ✅ Complete |
-| 2 | Deterministic memory (profile + facts + vector search, TS-gated writes, temporal awareness) | ✅ Complete |
-| 3 | LLM agnostic (Ollama, Anthropic, OpenAI, xAI, any OpenAI-compatible) | ✅ Complete |
-| 4 | Multiple brains (isolated memory namespaces per project/context) | ✅ Complete |
-| 5 | Voice + vision (STT/TTS multi-provider, PDF page rendering for LLMs) | ✅ Complete |
-| 6 | Settings, usage tracking, in-app updates, dark mode, web search | ✅ Complete |
-| 7 | Grok Voice Agent (real-time WebSocket with memory + web search) | 🔧 Built, stabilizing |
-| 8 | Cloud SaaS version | 📅 Next week |
 
 ## My Projects
 
