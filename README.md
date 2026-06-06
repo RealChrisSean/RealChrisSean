@@ -1,158 +1,44 @@
 # Hi, I'm Chris "Sean" Dabatos
 
-> I build apps I'd actually use myself, then share them with the world.
+> I build apps I'd actually use myself, then share what broke while building them.
 
 ![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square)
 
 ## Currently Working On
-- [**RecallMEM**](https://github.com/RealChrisSean/RecallMEM) - Built my own private AI chatbot w/ Gemma 4. I personally just don't want my data sitting on someone else's server. So I built RecallMEM. Where every single byte of YOUR conversation stays on YOUR machine. No account, no cloud, and no telemetry needed. And the best part, it remembers everything you talk about across not only sessions, but days, weeks and even months.<br>
-<details>
-<summary><b>How RecallMEM's Memory Architecture Works</b></summary>
-<br>
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                  RECALLMEM MEMORY ARCHITECTURE                  │
-│                  The LLM proposes, TypeScript decides.          │
-│                  Retrieval is deterministic. Always.            │
-└─────────────────────────────────────────────────────────────────┘
+- [**RecallMEM**](https://github.com/RealChrisSean/RecallMEM) - A private AI memory app where the model talks, but the app owns memory. Postgres, pgvector, receipts, grounded dates, hybrid search, and voice turns saved back into the same chat history. I built it because I didn’t want my conversations, memories, and context living on someone else’s server.
 
-  YOU SEND A MESSAGE                READ PATH (deterministic)
-  ──────────────────►       ┌──────────────────────────────┐
-                            │  SQL pulls profile summary   │
-                            │                              │
-                            │  Smart fact selection:       │
-                            │    1. Pinned identity/family │
-                            │       facts (always included)│
-                            │    2. Vector search on facts │
-                            │       for what's relevant to │
-                            │       your message           │
-                            │    3. Recent facts fill the  │
-                            │       remaining slots        │
-                            │                              │
-                            │  EmbeddingGemma converts     │
-                            │    your message to a vector  │
-                            │  pgvector cosine similarity  │
-                            │    ranks past transcript     │
-                            │    chunks (up to 8)          │
-                            │                              │
-                            │  TypeScript template builds  │
-                            │    the system prompt         │
-                            └──────────────┬───────────────┘
-                                           │
-                                           ▼
-                            ┌──────────────────────────────┐
-                            │   Your chosen LLM            │
-                            │   (Gemma / Claude / GPT /    │
-                            │    Grok / any compatible)    │
-                            │   sees a fully-assembled     │
-                            │   prompt with dated memory   │
-                            └──────────────────────────────┘
-
-  The LLM never queries the database. It cannot "decide" to
-  retrieve something. It cannot hallucinate a memory that
-  isn't there — if it's not in the prompt, it doesn't exist
-  for the model.
-
-═══════════════════════════════════════════════════════════════════
-  AFTER EVERY ASSISTANT REPLY — LIVE FACT EXTRACTION
-═══════════════════════════════════════════════════════════════════
-
-  Stream closes
-       │
-       ▼  fire-and-forget, user never waits
-  The same LLM you're chatting with reads the transcript
-  AND the existing active facts. Returns a JSON object:
-       {
-         facts: ["new fact 1", "new fact 2"],
-         supersedes: ["uuid-of-old-fact-that-no-longer-true"]
-       }
-       │
-       ▼
-  TypeScript validator (6 gates)
-       │
-       ├──► garbage filter (meta-observations,
-       │    AI behavior notes, "hasn't shared", etc)
-       ├──► JSON parse + type validation
-       ├──► length / quality bar
-       ├──► dedupe against entire facts table
-       ├──► category routing (keyword + inflection,
-       │    no LLM)
-       └──► insert OR retire
-              │
-              ▼
-  New facts are embedded (768-dim vector) for future
-  semantic search. Old facts get is_active=false,
-  valid_to=NOW(). History preserved. Active set always
-  reflects current truth.
-       │
-       ▼
-  recategorizeAllFacts() re-runs the router on every fact.
-  Categories self-heal as the logic improves.
-       │
-       ▼
-  rebuildProfile() synthesizes a structured profile from
-  active facts. Each fact stamped with its valid_from date.
-
-═══════════════════════════════════════════════════════════════════
-  TEMPORAL CONTEXT — SOLVES THE COLLAPSE PROBLEM
-═══════════════════════════════════════════════════════════════════
-
-  Across conversations:  every active fact in the prompt is
-                         stamped [YYYY-MM-DD]. Newer facts
-                         override older ones if they conflict.
-
-  Resumed conversations: chat last touched > 2 hours ago?
-                         single system marker injected:
-                         [Conversation resumed 6 days later]
-
-  Retrieved chunks:      vector search results prefixed with
-                         [from conversation on YYYY-MM-DD]
-                         so the model can tell history from now.
-
-```
-
-| | How Most AI Apps Do It | RecallMEM |
-|---|---|---|
-| **Runs locally** | ❌ Cloud only | ✅ Postgres + Ollama on your Mac |
-| **Memory retrieval** | LLM tool calls (hallucinable) | Deterministic SQL + pgvector |
-| **Fact storage** | JSON blobs / summaries | One row per fact, validated 6 ways |
-| **Profile synthesis** | LLM (drift, corruption) | Pure TypeScript, idempotent |
-| **Bad LLM run** | Corrupts memory | Cannot touch the DB |
-| **Stale facts** | Sit alongside current ones | Auto-retired via supersession |
-| **Temporal awareness** | None (everything looks "now") | Every fact has valid_from + valid_to |
-| **Resumed chats** | Model has no idea time passed | System marker for >2hr gaps |
-| **Bring your own LLM** | ❌ vendor lock-in | ✅ Ollama / Claude / GPT / any OpenAI-compatible |
-| **Install** | sign up, pay, wait | `npx recallmem` |
-| **License** | Closed | Apache 2.0 |
-
-</details>
-
+- [**Sprite Agent Workbench**](https://github.com/RealChrisSean/sprite-agent-workbench) - A visual dashboard for Fly.io Sprites. Sprites give AI agents a persistent computer, but AI builders still need to see what state that computer is in. Running, asleep, warm, cold, public URL, checkpoints, restore points. The Workbench is the monitor for that.
 
 ## My Projects
 
-- [Speak2Me](https://speak2me.io) - Your personal Voice AI Agent. Built with real-time emotion detection through your voice (Hume EVI), Claude Opus 4.6 brain, deterministic facts engine that pins identity facts so they never fall off. 
-- [BaseCamp](https://base-camp-five.vercel.app) - Voice-first personal health OS that builds long-term memory about what works for YOUR body
-- [Parallel Lives](https://app.parallellives.ai) - AI decision simulator using multi-model reasoning (Claude + GPT)
-- [Speak It](https://app.parallellives.ai/speak-it) - Voice-to-text Chrome extension that learns your style without storing your words
-- [College Picker](https://github.com/RealChrisSean/college-picker) - AI college comparison with real Dept. of Education data
-- [Journal It](https://app.parallellives.ai/journal) - AI journaling system that writes your autobiography
-- [atlasMemory](https://github.com/RealChrisSean/atlasMemory) - Unified AI memory layer with branching and rollbacks
-- [OriginAI](https://app.parallellives.ai/detect) - Chrome extension to detect AI-generated content
+- [Speak2Me](https://speak2me.io) - Voice AI tutor / agent built around conversation, memory, and learning through questions instead of one-shot answers.
+- [Sprite Agent Workbench](https://github.com/RealChrisSean/sprite-agent-workbench) - Visual dashboard for AI builders using Fly.io Sprites.
+- [Parallel Lives](https://app.parallellives.ai) - AI decision simulator using multi-model reasoning.
+- [Speak It](https://app.parallellives.ai/speak-it) - Voice-to-text Chrome extension that learns your style without storing your words.
+- [College Picker](https://github.com/RealChrisSean/college-picker) - AI college comparison with real Department of Education data.
+- [Journal It](https://app.parallellives.ai/journal) - AI journaling system that writes your autobiography.
+- [atlasMemory](https://github.com/RealChrisSean/atlasMemory) - Unified AI memory layer with branching and rollbacks.
+- [OriginAI](https://app.parallellives.ai/detect) - Chrome extension to detect AI-generated content.
 
 ## Latest Blog Posts
 
-- [Coding Used to Be Hard](https://www.chrisdabatos.com/blog/coding-used-to-be-hard/) - Apr 2026
-- [Study Mode](https://www.chrisdabatos.com/blog/study-mode/) - Mar 2026
-- [AI Engineering Is the New Web Dev](https://www.chrisdabatos.com/blog/ai-engineering-new-web-dev/) - Mar 2026
-- [AI Memory Is Broken. I Know Because I Built It.](https://www.chrisdabatos.com/blog/ai-memory-is-broken/) - Feb 2026
-- [Building a Voice-to-Text App That Learns Your Style](https://www.chrisdabatos.com/blog/speak-it/) - Jan 2026
-- [I Built a System That Writes My Autobiography While I Use It](https://www.chrisdabatos.com/blog/ai-journal-system/) - Dec 2025
+- [Cloud Pricing Is A UX Problem](https://www.chrisdabatos.com/blog/cloud-pricing-is-a-ux-problem/) - Jun 2026
+- [Don’t Build A Second Product For Voice](https://www.chrisdabatos.com/blog/dont-build-a-second-product-for-voice/) - Jun 2026
+- [Voice Agents Need Receipts](https://www.chrisdabatos.com/blog/voice-agents-need-receipts/) - May 2026
+- [Your AI Agent Is Logged In. That Doesn't Mean It Should Have Access.](https://www.chrisdabatos.com/blog/ai-agent-access/) - May 2026
+- [The LLM Was The Easy Part](https://www.chrisdabatos.com/blog/llm-was-the-easy-part/) - May 2026
+- [AI memory is broken because we let the model own the truth.](https://www.chrisdabatos.com/blog/ai-memory-is-broken/) - May 2026
 
 ## Content
-- [Blog](https://www.chrisdabatos.com/) - Technical deep-dives
-- Speaking: [AllThingsAI 2026](https://2026.allthingsai.org/sessions/write-like-me-not-for-me), [Percona Live](https://www.youtube.com/watch?v=ufiRoKlBj4A), SF Awesome AI Dev Tools
+
+- [Blog](https://www.chrisdabatos.com/blog/) - Technical deep-dives into AI apps, memory, voice, infra, and what breaks while building them.
+- [YouTube](https://youtube.com/@RealChrisSean) - AI tools, databases, devrel, and builder notes.
+- Speaking: [DataConLA 26](https://www.dataconla.com/), [Commit Your Code 2026](https://www.commityourcode.com/), [AllThingsAI 2026](https://2026.allthingsai.org/sessions/write-like-me-not-for-me), [Percona Live](https://www.youtube.com/watch?v=ufiRoKlBj4A), SF Awesome AI Dev Tools.
 
 ## Connect
 
-[![X](https://img.shields.io/badge/@RealChrisSean-black?style=flat-square&logo=x&logoColor=white)](https://x.com/RealChrisSean) [![LinkedIn](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@RealChrisSean) [![Website](https://img.shields.io/badge/chrisdabatos.com-000?style=flat-square&logo=vercel&logoColor=white)](https://chrisdabatos.com)
+[![X](https://img.shields.io/badge/@RealChrisSean-black?style=flat-square&logo=x&logoColor=white)](https://x.com/RealChrisSean)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/realchrissean)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@RealChrisSean)
+[![Website](https://img.shields.io/badge/chrisdabatos.com-000?style=flat-square&logo=vercel&logoColor=white)](https://chrisdabatos.com)
