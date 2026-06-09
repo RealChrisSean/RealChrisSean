@@ -4,7 +4,7 @@
 ![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square)
 ## Currently Working On
 - [**RecallMEM**](https://github.com/RealChrisSean/RecallMEM) - A private AI memory app for the part everyone hand waves: what should an AI remember, who gets to write the memory, and how do you stop the model from hallucinating and convincing the database of something that never happened? The model proposes. The app checks the quote, the date, the transcript chunk, and the search result before any of it becomes memory. So, if there's no quote, no memory.
-- [**Sprite Agent Workbench**](https://github.com/RealChrisSean/sprite-agent-workbench) - [Sprites](https://sprites.dev) give an agent a real, persistent computer. The problem is that you can't see what that computer is doing. Wether if it's Running, asleep, warm, cold, has a public URL, it's checkpoint history, or restoring points. This is the dashboard I wanted so checking whether an agent is alive doesn't mean digging through the terminal.
+- [**Sprite Agent Workbench**](https://github.com/RealChrisSean/sprite-agent-workbench) - [Sprites](https://sprites.dev) give an agent a real, persistent computer. The problem is that you can't see everything that computer is doing. This is the dashboard I wanted so checking whether an agent is alive doesn't mean digging through the terminal.
 ## My Projects
 - [Speak2Me](https://speak2me.io) - Voice AI tutor that teaches through a back-and-forth instead of answering once and going quiet.
 - [Parallel Lives](https://app.parallellives.ai) - AI decision simulator for thinking through possible futures instead of staring at a pros-and-cons list.
