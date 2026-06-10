@@ -1,7 +1,5 @@
 # Hi, I’m Chris "Sean" Dabatos
 
-![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square)
-
 ## Currently Working On
 
 - [**RecallMEM**](https://github.com/RealChrisSean/RecallMEM) - Local-first AI memory built on one rule: the LLM proposes, TypeScript decides. Nothing becomes memory without a verifiable source behind it. No quote, no memory.
@@ -33,7 +31,6 @@ Different apps, same argument: capability isn’t trust. If an AI says it or doe
 ## Content
 
 - [Blog](https://www.chrisdabatos.com/blog/) - Technical deep-dives into AI apps, memory, voice, infra, and what breaks while building them.
-- [YouTube](https://youtube.com/@RealChrisSean) - AI tools, databases, devrel, and builder notes.
 
 ## Connect
 
