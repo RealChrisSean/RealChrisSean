@@ -1,7 +1,5 @@
 # Hi, I’m Chris "Sean" Dabatos
 
-Staff Developer Relations Engineer at [Fly.io](https://fly.io).
-
 ![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square)
 
 ## Currently Working On
