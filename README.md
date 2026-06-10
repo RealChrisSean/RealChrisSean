@@ -1,4 +1,4 @@
-# Hi, I’m Chris
+# Hi, I’m Chris "Sean" Dabatos
 
 Staff Developer Relations Engineer at [Fly.io](https://fly.io).
 
