@@ -1,8 +1,6 @@
 # Hi, I’m Chris "Sean" Dabatos
 
-Staff Developer Relations Engineer/ Lead DevRel at [Fly.io](https://fly.io).
-
-> The demo is the easy part. I build the system around it, then write down what broke.
+Staff Developer Relations Engineer at [Fly.io](https://fly.io).
 
 ![Profile Views](https://komarev.com/ghpvc/?username=RealChrisSean&color=blue&style=flat-square)
 
