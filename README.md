@@ -3,7 +3,7 @@
 ## Currently Working On
 
 - [**RecallMEM**](https://github.com/RealChrisSean/RecallMEM) - Local-first AI memory built on one rule: the LLM proposes, TypeScript decides. Nothing becomes memory without a verifiable source behind it. No quote, no memory.
-<!-- - [**Sprite Agent Workbench**](https://github.com/RealChrisSean/sprite-agent-workbench) - [Sprites](https://sprites.dev) give an agent a real, persistent computer. A persistent computer accumulates state no chat log shows you. This is the observability layer I wanted, so checking whether an agent is alive doesn’t mean digging through the terminal. -->
+- [**Sprite Agent Workbench**](https://github.com/RealChrisSean/sprite-agent-workbench) - [Sprites](https://sprites.dev) give an agent a real, persistent computer. A persistent computer accumulates state no chat log shows you. This is the observability layer I wanted, so checking whether an agent is alive doesn’t mean digging through the terminal.
 
 ## My Projects
 
