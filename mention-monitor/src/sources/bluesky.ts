@@ -1,4 +1,4 @@
-import type { Mention, Source } from "../types.js";
+import type { Mention, SearchContext, Source } from "../types.js";
 
 // Bluesky via the public AppView. searchPosts needs no auth and is a great free
 // stand-in for "X" since a lot of the dev/infra crowd cross-posts there.
@@ -15,9 +15,9 @@ interface BskyPost {
 
 export const bluesky: Source = {
   name: "bluesky",
-  async search(keywords: string[]): Promise<Mention[]> {
+  async search(ctx: SearchContext): Promise<Mention[]> {
     const out: Mention[] = [];
-    for (const keyword of keywords) {
+    for (const keyword of ctx.keywords) {
       const params = new URLSearchParams({
         q: keyword,
         sort: "latest",

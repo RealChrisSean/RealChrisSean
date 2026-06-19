@@ -1,4 +1,4 @@
-import type { Mention, Source } from "../types.js";
+import type { Mention, SearchContext, Source } from "../types.js";
 
 // Google News RSS: a free, no-key firehose of news/blog mentions. Not a social
 // network, but it reliably catches write-ups, launch posts and press that the
@@ -8,9 +8,9 @@ const BASE = "https://news.google.com/rss/search";
 
 export const googlenews: Source = {
   name: "googlenews",
-  async search(keywords: string[]): Promise<Mention[]> {
+  async search(ctx: SearchContext): Promise<Mention[]> {
     const out: Mention[] = [];
-    for (const keyword of keywords) {
+    for (const keyword of ctx.keywords) {
       // Quote the term so multi-token keywords match as a phrase.
       const params = new URLSearchParams({
         q: `"${keyword}"`,

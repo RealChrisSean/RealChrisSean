@@ -33,9 +33,17 @@ jobs:
 
       - name: Run monitor
         env:
-          KEYWORDS: ${{ vars.KEYWORDS || 'fly.io,flydotio' }}
+          KEYWORDS: ${{ vars.KEYWORDS || 'fly.io,flydotio,sprites.dev,KiloClaw,fly machines' }}
+          TOPICS: ${{ vars.TOPICS || 'copilot alternative,copilot pricing' }}
+          SUBREDDITS: ${{ vars.SUBREDDITS || 'AI_Agents,LLMDevs,LocalLLaMA,SaaS' }}
+          GITHUB_REPOS: ${{ vars.GITHUB_REPOS || 'All-Hands-AI/OpenHands,cline/cline,crewAIInc/crewAI' }}
           SOURCE_TWITTER: ${{ vars.SOURCE_TWITTER || 'false' }}
           TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          SOURCE_MASTODON: ${{ vars.SOURCE_MASTODON || 'false' }}
+          MASTODON_INSTANCE: ${{ vars.MASTODON_INSTANCE || 'fosstodon.org' }}
+          MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+          # GITHUB_TOKEN is auto-provided by Actions; raises the search rate limit.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: npm start

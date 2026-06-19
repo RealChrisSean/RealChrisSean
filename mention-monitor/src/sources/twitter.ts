@@ -1,4 +1,4 @@
-import type { Mention, Source } from "../types.js";
+import type { Mention, SearchContext, Source } from "../types.js";
 
 // X / Twitter recent search. THIS REQUIRES A PAID PLAN.
 // As of 2026 the "recent search" endpoint (last 7 days) is on the Basic tier
@@ -20,11 +20,11 @@ interface TweetData {
 export function makeTwitter(bearerToken: string): Source {
   return {
     name: "twitter",
-    async search(keywords: string[]): Promise<Mention[]> {
+    async search(ctx: SearchContext): Promise<Mention[]> {
       const out: Mention[] = [];
       // X supports OR queries, so one request covers all keywords. -is:retweet
       // cuts noise. Mind the per-tier rate limits.
-      const query = `(${keywords.map((k) => `"${k}"`).join(" OR ")}) -is:retweet`;
+      const query = `(${ctx.keywords.map((k) => `"${k}"`).join(" OR ")}) -is:retweet`;
       const params = new URLSearchParams({
         query,
         max_results: "50",
